@@ -19,15 +19,15 @@
 # Instale Dependências
 - bundle install
 
-# Migre o banco de dados
-- rails db:create
-- rails db:migrate
-
 # Ajuste o Banco de Dados
 - Local p/ adicionar dados de login: [/config/database.yml](./config/database.yml)
 - Ajuste os campos:
 
 ![Banco de Dados - Campos](/public/database.png)
+
+# Migre o banco de dados
+- rails db:create
+- rails db:migrate
 
 # Como Rodar o Servidor
 - rails server
