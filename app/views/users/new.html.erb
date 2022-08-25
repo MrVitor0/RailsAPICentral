@@ -1,0 +1,34 @@
+<section class="hero-section d-flex align-items-center">
+           <div class="anim-elements">
+                <div class="anim-element"></div>
+                <div class="anim-element"></div>
+                <div class="anim-element"></div>
+                <div class="anim-element"></div>
+                <div class="anim-element"></div>
+            </div>
+            <div class="container">
+                <div class="contact-wrap d-flex align-items-center row">
+                    <div class="col-md-6 padding-15">
+		                <div class="contact-info">
+		                    <h2 class="text-white">Informe alguns dados p/ cadastro</h2>
+		                    <p  class="text-white">Sistema de Cadastro</p>
+		                </div>
+		            </div>
+		            <div class="col-md-6 padding-15">
+		                <div class="contact-form">
+                                <% if notice %>
+                                    <div class="alert alert-warning" role="alert">
+                                        <%= notice %>
+                                    </div>
+                                <% end %>
+                             <%= render "form", user: @user %>
+                        </div>
+		            </div>
+		        </div>
+            </div>
+</section>
+
+
+
+<br>
+

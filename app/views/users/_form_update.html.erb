@@ -1,0 +1,93 @@
+<%= form_with(model: user) do |form| %>
+  <% if user.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group colum-row row">
+      <div class="col-sm-6">
+          <%= form.text_field :char_name, :placeholder => "Nome Completo" , :class => "form-control" %>
+      </div>
+      <div class="col-sm-6">
+          <%= form.text_field :char_email, :placeholder => "E-mail" , :class => "form-control" %>
+      </div>
+  </div>
+
+  <div class="form-group colum-row row">
+      <div class="col-sm-6">
+         <%= form.text_field :int_document, :placeholder => "CPF/CNPJ" , :class => "form-control" %>
+      </div>
+      <div class="col-sm-6">
+          <%= form.date_field :date_dt_birth, :placeholder => "Data de Nascimento" , :class => "form-control" %>
+      </div>
+  </div>
+
+  <div class="form-group colum-row row">
+        <div class="col-sm-6">
+            <%= form.text_field :char_cep, :id => "id_cep", :placeholder => "CEP" , :class => "form-control" %>
+        </div>
+        <div class="col-sm-6">
+            <%= form.text_field :char_street, :id => "address", :placeholder => "Rua" , :class => "form-control" %>
+        </div>
+    </div>
+
+    <div class="form-group colum-row row">
+        <div class="col-sm-6">
+          <%= form.text_field :int_neighbourhood, :id => "district", :placeholder => "Bairro" , :class => "form-control" %>
+        </div>
+        <div class="col-sm-6">
+            <%= form.text_field :city, :id => "city", :placeholder => "Cidade" , :class => "form-control" %>
+        </div>
+    </div>
+
+    <div class="form-group colum-row row">
+        <div class="col-sm-12">
+          <%= form.select :state, options_for_select(['Rio de Janeiro', 'Outro'], user.state)  %>
+        </div>
+    </div>
+
+  <div>
+   <%= form.submit :class => "default-btn" %>
+  </div>
+<% end %>
+<script>
+  
+    function getCep() {
+        var cep = document.getElementById('id_cep').value;
+        return cep;
+    }
+
+    //check if value of #id_Cep changes
+    document.getElementById('id_cep').onkeyup = function() {
+        var cep = getCep();
+        //espera parar de digitar por 3 segundos para buscar o cep
+         if (cep.length == 8) {
+            document.getElementById('id_cep').style.backgroundColor = 'white';
+            document.getElementById('id_cep').style.opacity = '1';
+             
+          //fetch to `${cep}` and use then to get the data
+          fetch(`https://ws.apicep.com/cep/${cep}.json`)
+            .then(response => response.json())
+            .then(data => {
+                if(data.ok == true){
+                    document.getElementById('address').value = data.address;
+                    document.getElementById('district').value = data.district;
+                    document.getElementById('city').value = data.city;
+                }else{
+                  alert('CEP não encontrado');
+                }
+            })
+         }else{
+            //change background color to red  and opcaity .05 if cep is not valid
+            document.getElementById('id_cep').style.backgroundColor = 'red';
+            document.getElementById('id_cep').style.opacity = '.6';
+         }
+    }
+</script>

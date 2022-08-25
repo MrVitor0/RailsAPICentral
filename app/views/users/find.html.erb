@@ -1,0 +1,50 @@
+
+  <section class="hero-section d-flex align-items-center">
+           <div class="anim-elements">
+                <div class="anim-element"></div>
+                <div class="anim-element"></div>
+                <div class="anim-element"></div>
+                <div class="anim-element"></div>
+                <div class="anim-element"></div>
+            </div>
+            <div class="container">
+                <div class="hero-wrap row">
+                    <div class="col-md-12">
+                         <section class="team-section padding bd-bottom">
+                            <div class="container">
+                                <div class="team-wrap row">
+                                  <% @users.each do |user| %>
+                                    <div class="col-lg-3 col-sm-6 sm-padding">
+                                        <div class="team-box">
+                                            <div class="team-info">
+                                              <%= image_tag("team-1-copyright-490x554.jpg") %>
+                                            </div>
+                                            <div class="team-content">  
+                                               <%= link_to "Editar Usuário", user %>
+                                                <h3><%= user.char_name %></h3>
+                                                <span><%= user.char_email %></span>
+                                                <span><%= user.int_document %></span>
+                                                <span><%= user.date_dt_birth %></span>
+                                                <span><%= user.char_cep %></span>
+                                                <span><%= user.char_street %></span>
+                                                <span><%= user.int_neighbourhood %></span>
+                                                <span><%= user.city %></span>
+                                                <span><%= user.state %></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% end %>
+                                </div>
+                           </div>
+                             <form action="<%= url_for  controller: 'users', action: 'find' %>" method="get" class="subscribe-form pt-5">
+                                        <input type="text" name="q" id="subs-email" class="form-input" placeholder="Informe a palavra chave">
+                                        <button type="submit" class="submit-btn">Buscar</button>
+                                        <div id="subscribe-result">
+                                            <p class="subscription-success"></p>
+                                            <p class="subscription-error"></p>
+                                        </div>
+                              </form>
+                    </div>
+                 </div>
+            </div>
+        </section>

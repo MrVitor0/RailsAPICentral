@@ -1,0 +1,29 @@
+
+  <section class="hero-section d-flex align-items-center">
+           <div class="anim-elements">
+                <div class="anim-element"></div>
+                <div class="anim-element"></div>
+                <div class="anim-element"></div>
+                <div class="anim-element"></div>
+                <div class="anim-element"></div>
+            </div>
+            <div class="container">
+                <div class="hero-wrap row">
+                    <div class="col-md-6">
+                        <div class="hero-content">
+                            <h2>Ruby Developer</h2>
+                            <p>Cadastro de Usuários / Edição de Usuário / Busca de Usuários</p>
+                            <a href="<%= url_for new_user_path %>" class="default-btn">Cadastrar Usuário <span></span></a>
+                            <a href="<%= url_for  controller: 'users', action: 'search' %>" class="default-btn">Buscar Usuário <span></span></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="hero-content d-none d-md-block">
+                           <%= image_tag("SaaS-2.png"  )  %> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- /.hero-section -->
+     
+

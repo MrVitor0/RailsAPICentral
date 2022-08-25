@@ -1,0 +1,35 @@
+
+  <section class="hero-section d-flex align-items-center">
+           <div class="anim-elements">
+                <div class="anim-element"></div>
+                <div class="anim-element"></div>
+                <div class="anim-element"></div>
+                <div class="anim-element"></div>
+                <div class="anim-element"></div>
+            </div>
+            <div class="container">
+                <div class="hero-wrap row">
+                    <div class="col-md-6">
+                        <div class="hero-content">
+                            <h4 class="text-white">Ruby Developer</h4>
+                             <h2>Buscar Usuários</h2>
+                             <form action="<%= url_for  controller: 'users', action: 'find' %>" method="get" class="subscribe-form">
+                                        <input type="text" name="q" id="subs-email" class="form-input" placeholder="Informe a palavra chave">
+                                        <button type="submit" class="submit-btn">Buscar</button>
+                                        <div id="subscribe-result">
+                                            <p class="subscription-success"></p>
+                                            <p class="subscription-error"></p>
+                                        </div>
+                              </form>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="hero-content d-none d-md-block">
+                           <%= image_tag("SaaS-2.png"  )  %> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- /.hero-section -->
+      
+

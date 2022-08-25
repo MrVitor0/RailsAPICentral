@@ -1,0 +1,35 @@
+<%= form_with(model: user) do |form| %>
+  <% if user.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group colum-row row">
+      <div class="col-sm-6">
+          <%= form.text_field :char_name, :placeholder => "Nome Completo" , :class => "form-control" %>
+      </div>
+      <div class="col-sm-6">
+          <%= form.text_field :char_email, :placeholder => "E-mail" , :class => "form-control" %>
+      </div>
+  </div>
+
+  <div class="form-group colum-row row">
+      <div class="col-sm-6">
+         <%= form.text_field :int_document, :placeholder => "CPF/CNPJ" , :class => "form-control" %>
+      </div>
+      <div class="col-sm-6">
+          <%= form.date_field :date_dt_birth, :placeholder => "Data de Nascimento" , :class => "form-control" %>
+      </div>
+  </div>
+
+  <div>
+    <%= form.submit :class => "default-btn" %>
+  </div>
+<% end %>
