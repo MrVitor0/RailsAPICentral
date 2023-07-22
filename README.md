@@ -1,34 +1,22 @@
-# Versões do Sistema
-* Banco de dados Utilizado
+# System Versions
+* Database Used
 - PostgreSQL
-* Versão do Banco de Dados
+* Database Version
 - 14.4
-* Versão do Ruby
+* Ruby Version
 - 3.1.12
-* Versão do Rails
+* Rails Version
 - 7.0.3.1
 
-# Como rodar o Sistema?
-- https://ruby.elisyumcorp.com (Online até o dia 29/08/2022)
+# How to Run the System?
 
-# Verifique as instalações externas
-- Instalar o Ruby (Caso não tenha instalado)
-- Instalar o Rails (Caso não tenha instalado) 
-- Instalar o PostgreSQL (Caso não tenha instalado)
+## Check External Installations
+- Install Ruby (If not already installed)
+- Install Rails (If not already installed)
+- Install PostgreSQL (If not already installed)
 
-# Instale Dependências
-- bundle install
+## Install Dependencies
+To install the required gems, run the following command in the terminal:
 
-# Ajuste o Banco de Dados
-- Local p/ adicionar dados de login: [/config/database.yml](./config/database.yml)
-- Ajuste os campos:
-
-![Banco de Dados - Campos](/public/database.png)
-
-# Migre o banco de dados
-- rails db:create
-- rails db:migrate
-
-# Como Rodar o Servidor
-- rails server
-
+```bash
+bundle install
